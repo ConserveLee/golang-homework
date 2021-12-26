@@ -11,7 +11,7 @@ type Person struct {
 	Advice	 string
 }
 
-func (p *Person) getGenderWeight() int {
+func (p *Person) getGenderWeight() float64 {
 	if p.Gender == "male" {
 		return 1
 	}

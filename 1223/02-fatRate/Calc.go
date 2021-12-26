@@ -13,7 +13,7 @@ func (Calc) getBmi(p *Person) {
 
 func (c Calc) getFatRate(p *Person) {
 	c.getBmi(p)
-	p.FatRate = (1.2*p.Bmi + 0.23*(float64(p.Age)) - 5.4 - 10.8*float64(p.getGenderWeight())) / 100
+	p.FatRate = (1.2*p.Bmi + 0.23*(float64(p.Age)) - 5.4 - 10.8*p.getGenderWeight()) / 100
 }
 
 func (c Calc) getAgeWeight(p *Person) int {
