@@ -11,11 +11,12 @@ func main() {
 	s := new(BMRService.Service).Init()
 	/** 往服务里生产一个person数据 */
 	s.Producer(BMR.GetFakePerson())
-	/** 取出person消息,生成一个单人BMR对象 */
+	/** 消费person消息,生成一个单人BMR对象 */
 	Bmr := BMR.BMR{
 		Person: s.Consumer(),
 	}
-	/** GetCompleteCalc: b.getFatRate() b.getAdvice() */
-	Bmr.GetCompleteCalc()
+	calc := new(BMR.Calc)
+	/** c.GetCompleteCalc(): c.getFatRate() & c.getAdvice() */
+	calc.GetCompleteCalc(&Bmr)
 	fmt.Println("person:", *Bmr.Person, "\nadvice:", Bmr.Advice)
 }
