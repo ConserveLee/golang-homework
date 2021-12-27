@@ -16,7 +16,7 @@ func main() {
 		Person: s.Consumer(),
 	}
 	calc := new(BMR.Calc)
-	/** c.GetCompleteCalc(): c.getFatRate() & c.getAdvice() */
+	/** c.GetCompleteBMR(): c.getFatRate() & c.getAdvice() */
 	calc.GetCompleteBMR(&Bmr)
 	fmt.Println("person:", *Bmr.Person, "\nadvice:", Bmr.Advice)
 }
