@@ -15,7 +15,7 @@ func GetFakePerson() *Person {
 	}
 }
 
-func (c Calc) GetCompleteCalc(b *BMR) {
+func (c Calc) GetCompleteBMR(b *BMR) {
 	c.getFatRate(b)
 	c.getAdvice(b)
 }
