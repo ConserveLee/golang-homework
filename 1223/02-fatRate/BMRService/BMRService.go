@@ -21,3 +21,7 @@ func (s *Service) Producer(person *BMR.Person) {
 func (s *Service) Consumer() *BMR.Person {
 	return s.list.Remove(s.list.Front()).(*BMR.Person)
 }
+
+func (s *Service) IsNil() bool {
+	return s.list.Front() == nil
+}
