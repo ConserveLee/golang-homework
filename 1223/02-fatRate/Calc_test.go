@@ -32,10 +32,11 @@ func TestCalc_GetCompleteBMR(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			c := BMR.Calc{}
 			c.GetCompleteBMR(tt.args.b)
-			if tt.args.b.Person.Bmi == float64(0) {
+			var zero float64 = 0
+			if tt.args.b.Person.Bmi == zero {
 				t.Errorf("failed to cacl bmi")
 			}
-			if tt.args.b.Person.FatRate == float64(0) {
+			if tt.args.b.Person.FatRate == zero {
 				t.Errorf("failed to cacl fatrate")
 			}
 			if tt.args.b.Advice == "" {
