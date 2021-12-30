@@ -1,27 +1,27 @@
 package BMRService
 
 import (
-	"container/list"
+	"container/List"
 	"homework/1223/02-fatRate/BMRService/BMR"
 )
 
 type Service struct {
-	list *list.List
+	List *list.List
 }
 
 func (s *Service) Init() *Service {
-	s.list = list.New()
+	s.List = list.New()
 	return s
 }
 
 func (s *Service) Producer(person *BMR.Person) {
-	s.list.PushBack(person)
+	s.List.PushBack(person)
 }
 
 func (s *Service) Consumer() *BMR.Person {
-	return s.list.Remove(s.list.Front()).(*BMR.Person)
+	return s.List.Remove(s.List.Front()).(*BMR.Person)
 }
 
 func (s *Service) IsNil() bool {
-	return s.list.Front() == nil
+	return s.List.Front() == nil
 }
