@@ -17,10 +17,10 @@ func GetFakePerson() *Person {
 
 func (c Calc) GetCompleteBMR(b *BMR) {
 	c.getFatRate(b)
-	c.getAdvice(b)
+	c.GetAdvice(b)
 }
 
-func (c Calc) getAdvice(b *BMR) {
+func (c Calc) GetAdvice(b *BMR) {
 	if b.Person.Age < 0 || b.Person.Age > 150 {
 		b.Advice = Advices["illegal"]
 		return
