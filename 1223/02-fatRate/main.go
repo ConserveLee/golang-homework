@@ -10,10 +10,10 @@ func main() {
 	/** 初始化一个服务 Service struct {list *list.List} */
 	s := new(BMRService.Service).Init()
 
-	receiver := new(Receiver)
+	receiver := new(BMR.Receiver)
 	/** 模拟一个生产的过程 */
 	for {
-		p, err := receiver.receiveArgs()
+		p, err := receiver.ReceiveArgs()
 		if err != nil {
 			fmt.Println(err.Error(), ",请重新输入")
 			continue

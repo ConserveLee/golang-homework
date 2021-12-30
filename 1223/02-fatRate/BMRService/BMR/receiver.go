@@ -1,9 +1,10 @@
-package main
+package BMR
 
 import (
 	"errors"
 	"fmt"
-	"homework/1223/02-fatRate/BMRService/BMR"
+
+
 )
 
 type Receiver struct {
@@ -22,8 +23,8 @@ var (
 	IllegalGenderError = errors.New("性别只能为male/female")
 )
 
-func (r *Receiver) receiveArgs() (*BMR.Person, error) {
-	p := new(BMR.Person)
+func (r *Receiver) ReceiveArgs() (*Person, error) {
+	p := new(Person)
 	fmt.Printf("\n正在录入第%v个人,\n请输入姓名:", r.Loop+1)
 	_, _ = fmt.Scanln(&p.Name)
 	fmt.Print("请输入身高(cm):")
