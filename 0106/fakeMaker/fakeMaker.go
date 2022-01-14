@@ -3,6 +3,7 @@ package fakeMaker
 import (
 	"fmt"
 	"homework/0106/building"
+	"homework/0106/elevator"
 	"homework/0106/passenger"
 	"math/rand"
 )
@@ -10,6 +11,7 @@ import (
 type Maker struct {
 	Building *building.Building
 	Passengers *[]passenger.Passenger
+	Elevator *elevator.Elevator
 }
 
 // MakeBuilding
@@ -37,4 +39,14 @@ func (m *Maker) MakeRandomPassenger(pNum ,fNum int) passenger.Passenger {
 	}
 	p.ThinkToFloor(m.Building.TopFloor)
 	return p
+}
+
+func (m *Maker) MakeElevator() *elevator.Elevator {
+	m.Elevator = &elevator.Elevator{
+		Floor:     1,
+		MaxCarry:  20,
+		Carrying:  0,
+		Direction: "stop",
+	}
+	return m.Elevator
 }

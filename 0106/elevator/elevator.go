@@ -18,6 +18,7 @@ type EleInterface interface {
 	Up() ok
 	Down() ok
 	CarryPassenger(p *passenger.Passenger) ok
+	Running(b building.Building) *Elevator
 }
 
 func (e *Elevator) Up(b *building.Building) ok {
