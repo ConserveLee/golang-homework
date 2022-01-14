@@ -10,7 +10,7 @@ import (
 
 type Maker struct {
 	Building *building.Building
-	Passengers *[]passenger.Passenger
+	Passengers *map[int]passenger.Passenger
 	Elevator *elevator.Elevator
 }
 
@@ -21,24 +21,22 @@ func (m *Maker) MakeBuilding() *building.Building {
 	return m.Building
 }
 
-func (m *Maker) MakeRandomPassengers() *[]passenger.Passenger {
+func (m *Maker) MakeRandomPassengers() *map[int]passenger.Passenger {
 	pNum := rand.Intn(19) + 1
-	ps := make([]passenger.Passenger, pNum)
+	ps := make(map[int]passenger.Passenger, pNum)
 	for i := 0; i < pNum; i++ {
-		ps = append(ps, m.MakeRandomPassenger(pNum, m.Building.TopFloor))
+		ps[i] = m.MakeRandomPassenger(i, m.Building.TopFloor)
 	}
 	m.Passengers = &ps
 	return m.Passengers
 }
 
-func (m *Maker) MakeRandomPassenger(pNum ,fNum int) passenger.Passenger {
+func (m *Maker) MakeRandomPassenger(i ,fNum int) passenger.Passenger {
 	stayingFloor := rand.Intn(fNum - 1) + 1
-	p := passenger.Passenger{
-		Name: fmt.Sprintln("乘客", pNum),
+	return passenger.Passenger{
+		Name: fmt.Sprintf("乘客%v", i+1),
 		StayingFloor: stayingFloor,
 	}
-	p.ThinkToFloor(m.Building.TopFloor)
-	return p
 }
 
 func (m *Maker) MakeElevator() *elevator.Elevator {
